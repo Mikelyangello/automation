@@ -3,12 +3,6 @@ import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-try:
-    from globals import MyCreds
-except ModuleNotFoundError:
-    print("You need to create a file\nglobals.py\nwith private credentials")
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
 from selenium.webdriver import FirefoxProfile
 
 
@@ -47,20 +41,5 @@ def browser(request):
 
 
 @pytest.fixture(scope="session")
-def mc():
-    return MyCreds()
-
-
-@pytest.fixture(scope="session")
 def by():
     return By
-
-
-@pytest.fixture(scope="session")
-def wd():
-    return WebDriverWait
-
-
-@pytest.fixture(scope="session")
-def ec():
-    return expected_conditions
